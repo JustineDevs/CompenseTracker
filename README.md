@@ -127,6 +127,6 @@ For support, email support@compensetracker.com or join our Slack channel.
   
   [![Thanks.dev](https://img.shields.io/badge/Thanks.dev-JustineDevs-green?style=for-the-badge&logo=github)](https://thanks.dev/JustineDevs)
 
-  [![Built with ❤️ for transparent compensation](https://img.shields.io/badge/Thanks.dev-JustineDevs-red?style=for-the-badge&logo=github)
+  [![Built with ❤️ for transparent compensation](https://img.shields.io/badge/Built-with-❤️-for-transparent-compensation-JustineDevs-red?style=for-the-badge&logo=github)
 
 </div>
