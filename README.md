@@ -117,16 +117,10 @@ This project follows clean code principles and best practices:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Support
-
-For support, email support@compensetracker.com or join our Slack channel.
-
 ---
 
 <div align="center">
   
   [![Thanks.dev](https://img.shields.io/badge/Thanks.dev-JustineDevs-green?style=for-the-badge&logo=github)](https://thanks.dev/JustineDevs)
-
-  [![Built with ❤️ for transparent compensation](https://img.shields.io/badge/Built-with-❤️-for-transparent-compensation-JustineDevs-red?style=for-the-badge&logo=github)
 
 </div>
