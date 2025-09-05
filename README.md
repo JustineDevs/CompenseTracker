@@ -34,102 +34,16 @@ A modern, AI-powered platform that:
 - Generates personalized AI-driven insights and email summaries
 - Provides secure data storage and user profile management
 
-## Tech Stack
+## Documentation
 
-### Frontend
-- **Next.js 14** - React framework with server-side rendering
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **React Bits** - UI component library
-- **MagicUI** - Advanced UI components
-- **Animejs** - Animation library
-- **Smoothy** - Smooth scrolling
-- **Zustand** - State management
-
-### Backend
-- **Node.js** - Server-side runtime
-- **Supabase** - Database and authentication
-- **Vercel** - Hosting and serverless functions
-
-### AI Integration
-- **OpenAI API** - Natural language processing
-- **Google Gemini API** - Multimodal AI capabilities
-- **DeepSeek** - Document-aware AI processing
-- **Microsoft Copilot** - Productivity enhancements
-
-## Features
-
-### Core Functionality
-- ✅ Detailed compensation breakdown (base salary, bonuses, benefits)
-- ✅ Real-life cost analysis (commuting, parking, food, utilities)
-- ✅ Government benefits calculation
-- ✅ True cost-to-company vs gross pay comparison
-- ✅ Interactive data visualization
-
-### AI-Powered Features
-- 🤖 Personalized email generation for compensation discussions
-- 🤖 AI-driven tips for optimizing compensation packages
-- 🤖 Multimodal document processing for insights
-- 🤖 Intelligent assistance and productivity enhancements
-
-### User Experience
-- 🔐 Secure user authentication and data storage
-- 📱 Responsive design for desktop and mobile
-- 💾 Save and manage multiple compensation profiles
-- 📊 Export detailed breakdown reports
-- 🎨 Modern, accessible UI with smooth animations
-
-## Architecture
-
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │   Backend       │    │   AI Services   │
-│   (Next.js)     │◄──►│   (Node.js)     │◄──►│   (OpenAI,      │
-│   TypeScript    │    │   Supabase      │    │    Gemini,      │
-│   Tailwind CSS  │    │   Vercel        │    │    DeepSeek)    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-- Supabase account
-- API keys for AI services
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/compensetracker.git
-cd compensetracker
-```
-
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Set up environment variables
-```bash
-cp .env.example .env.local
-```
-
-4. Configure your environment variables:
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-OPENAI_API_KEY=your_openai_key
-GOOGLE_GEMINI_API_KEY=your_gemini_key
-DEEPSEEK_API_KEY=your_deepseek_key
-MICROSOFT_COPILOT_API_KEY=your_copilot_key
-```
-
-5. Run the development server
-```bash
-npm run dev
-```
+| Documentation | Description |
+|---------------|-------------|
+| [![Setup Guide](https://img.shields.io/badge/Setup%20Guide-Complete-green?style=for-the-badge&logo=book)](docs/md/SETUP.md) | Complete setup and installation instructions |
+| [![Features](https://img.shields.io/badge/Features-Detailed-blue?style=for-the-badge&logo=star)](docs/md/features.md) | Detailed feature list and capabilities |
+| [![Tech Stack](https://img.shields.io/badge/Tech%20Stack-Overview-orange?style=for-the-badge&logo=code)](docs/md/tech-stack.md) | Complete technology stack overview |
+| [![Architecture](https://img.shields.io/badge/Architecture-Design-purple?style=for-the-badge&logo=diagram)](docs/md/architecture.md) | System architecture and design patterns |
+| [![API Docs](https://img.shields.io/badge/API%20Docs-Reference-red?style=for-the-badge&logo=api)](docs/md/api-documentation.md) | Complete API reference |
+| [![Contributing](https://img.shields.io/badge/Contributing-Guidelines-yellow?style=for-the-badge&logo=github)](docs/md/contributing.md) | Guidelines for contributors |
 
 ## Project Structure
 
@@ -151,6 +65,37 @@ CompenseTracker/
 └── README.md
 ```
 
+## Getting Started
+
+For detailed setup instructions, please see our [Setup Guide](docs/md/SETUP.md).
+
+### Quick Start
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/compensetracker.git
+cd compensetracker
+```
+
+2. Install dependencies
+```bash
+# Frontend
+cd app/fe && npm install
+
+# Backend  
+cd ../be && npm install
+```
+
+3. Configure environment variables (see [Setup Guide](docs/md/SETUP.md) for details)
+
+4. Run the development servers
+```bash
+# Terminal 1 - Backend
+cd app/be && npm run dev
+
+# Terminal 2 - Frontend
+cd app/fe && npm run dev
+```
 ## Development Guidelines
 
 This project follows clean code principles and best practices:
@@ -181,5 +126,7 @@ For support, email support@compensetracker.com or join our Slack channel.
 ---
 
 <div align="center">
+  [![Thanks.dev](https://img.shields.io/badge/Thanks.dev-JustineDevs-green?style=for-the-badge&logo=github)](https://thanks.dev/JustineDevs)
+  <br>
   <strong>Built with ❤️ for transparent compensation</strong>
 </div>
