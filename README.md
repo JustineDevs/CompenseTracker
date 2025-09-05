@@ -1,6 +1,5 @@
-# CompenseTracker
-
 <div align="center">
+# CompenseTracker
 
 **AI-Powered True Compensation Calculator**
 
