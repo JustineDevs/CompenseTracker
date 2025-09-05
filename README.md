@@ -1,9 +1,4 @@
 <div align="center">
-# CompenseTracker
-
-**AI-Powered True Compensation Calculator**
-
-*Transparent, detailed compensation calculation with AI-enhanced insights and personalized email generation*
 
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -33,6 +28,8 @@ A modern, AI-powered platform that:
 - Generates personalized AI-driven insights and email summaries
 - Provides secure data storage and user profile management
 
+<div align="center">
+
 ## Documentation
 
 | Documentation | Description |
@@ -43,6 +40,8 @@ A modern, AI-powered platform that:
 | [![Architecture](https://img.shields.io/badge/Architecture-Design-purple?style=for-the-badge&logo=diagram)](docs/md/architecture.md) | System architecture and design patterns |
 | [![API Docs](https://img.shields.io/badge/API%20Docs-Reference-red?style=for-the-badge&logo=api)](docs/md/api-documentation.md) | Complete API reference |
 | [![Contributing](https://img.shields.io/badge/Contributing-Guidelines-yellow?style=for-the-badge&logo=github)](docs/md/contributing.md) | Guidelines for contributors |
+
+</div>
 
 ## Project Structure
 
@@ -125,7 +124,9 @@ For support, email support@compensetracker.com or join our Slack channel.
 ---
 
 <div align="center">
+  
   [![Thanks.dev](https://img.shields.io/badge/Thanks.dev-JustineDevs-green?style=for-the-badge&logo=github)](https://thanks.dev/JustineDevs)
+
   <br>
   <strong>Built with ❤️ for transparent compensation</strong>
 </div>
