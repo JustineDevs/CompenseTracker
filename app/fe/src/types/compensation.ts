@@ -137,22 +137,8 @@ export interface EmailTemplate {
   updatedAt: Date;
 }
 
-export interface UserProfile {
-  id: string;
-  email: string;
-  name: string;
-  company?: string;
-  position?: string;
-  industry?: string;
-  compensationProfiles: CompensationProfile[];
-  emailTemplates: EmailTemplate[];
-  createdAt: Date;
-  updatedAt: Date;
-}
-
 export interface CompensationProfile {
   id: string;
-  userId: string;
   name: string;
   input: CompensationInput;
   breakdown: CompensationBreakdown;

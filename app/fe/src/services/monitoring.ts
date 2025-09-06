@@ -4,7 +4,7 @@
  */
 
 interface ErrorContext {
-  userId?: string;
+  anonymousUserId?: string;
   sessionId?: string;
   component?: string;
   action?: string;
@@ -67,7 +67,7 @@ class MonitoringService {
           action: context?.action || 'unknown',
         },
         user: {
-          id: context?.userId,
+          id: context?.anonymousUserId,
         },
         extra: context?.metadata,
       });
@@ -85,7 +85,7 @@ class MonitoringService {
           action: context?.action || 'unknown',
         },
         user: {
-          id: context?.userId,
+          id: context?.anonymousUserId,
         },
         extra: context?.metadata,
       });
@@ -93,22 +93,20 @@ class MonitoringService {
   }
 
   /**
-   * Set user context for error tracking
+   * Set anonymous user context for error tracking
    */
-  setUser(userId: string, email?: string, username?: string) {
+  setAnonymousUser(anonymousUserId: string) {
     if (this.sentry && this.isInitialized) {
       this.sentry.setUser({
-        id: userId,
-        email,
-        username,
+        id: anonymousUserId,
       });
     }
   }
 
   /**
-   * Clear user context
+   * Clear anonymous user context
    */
-  clearUser() {
+  clearAnonymousUser() {
     if (this.sentry && this.isInitialized) {
       this.sentry.setUser(null);
     }
