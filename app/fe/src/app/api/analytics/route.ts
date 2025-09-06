@@ -19,13 +19,13 @@ export async function GET(request: NextRequest) {
     // For now, return empty data since we don't have real visitors yet
     // This will show 0 visitors instead of mock data
     const emptyData: VercelAnalyticsData[] = [
-      { day: 'M', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'T', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'W', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'T', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'F', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'S', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'S', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Mon', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Tue', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Wed', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Thu', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Fri', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Sat', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Sun', visitors: 0, pageviews: 0, bounceRate: 0 },
     ];
 
     const totalVisitors = 0;
@@ -45,13 +45,13 @@ export async function GET(request: NextRequest) {
     
     // Return empty data on error instead of mock data
     const emptyData: VercelAnalyticsData[] = [
-      { day: 'M', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'T', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'W', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'T', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'F', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'S', visitors: 0, pageviews: 0, bounceRate: 0 },
-      { day: 'S', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Mon', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Tue', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Wed', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Thu', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Fri', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Sat', visitors: 0, pageviews: 0, bounceRate: 0 },
+      { day: 'Sun', visitors: 0, pageviews: 0, bounceRate: 0 },
     ];
 
     return NextResponse.json({

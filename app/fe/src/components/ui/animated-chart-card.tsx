@@ -19,17 +19,17 @@ interface AnimatedChartCardProps {
 }
 
 const defaultWeeklyData: ChartData[] = [
-  { day: 'M', visitors: 0 },
-  { day: 'T', visitors: 0 },
-  { day: 'W', visitors: 0 },
-  { day: 'T', visitors: 0 },
-  { day: 'F', visitors: 0 },
-  { day: 'S', visitors: 0 },
-  { day: 'S', visitors: 0 },
+  { day: 'Mon', visitors: 0 },
+  { day: 'Tue', visitors: 0 },
+  { day: 'Wed', visitors: 0 },
+  { day: 'Thu', visitors: 0 },
+  { day: 'Fri', visitors: 0 },
+  { day: 'Sat', visitors: 0 },
+  { day: 'Sun', visitors: 0 },
 ];
 
-const chartWidth = 450;
-const chartHeight = 60;
+const chartWidth = 900;
+const chartHeight = 50;
 
 export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
   data = defaultWeeklyData,
@@ -58,7 +58,7 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
 
   return (
     <motion.div
-      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-8 rounded-3xl w-[520px] space-y-6 shadow-2xl border border-white/25 ${className}`}
+      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-8 rounded-3xl w-[1000px] space-y-6 shadow-2xl border border-white/25 ${className}`}
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ scale: 1.02, y: -5 }}
@@ -165,7 +165,7 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
         >
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-white font-semibold text-lg">{activeDay.day}day</div>
+              <div className="text-white font-semibold text-lg">{activeDay.day}</div>
               <div className="text-white/70 text-sm">{activeDay.visitors} visitors</div>
             </div>
             <div className="text-right">
