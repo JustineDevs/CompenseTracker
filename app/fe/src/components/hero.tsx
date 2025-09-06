@@ -85,32 +85,32 @@ export function Hero() {
             }`}
             style={{ transitionDelay: '400ms' }}
           >
-            <span className="block sm:hidden">Discover Your</span>
-            <span className="hidden sm:block">Discover Your{' '}</span>
-            <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-              <span className="sm:hidden">&nbsp;</span>
-              {titles.map((title, index) => (
-                <motion.span
-                  key={index}
-                  className="absolute font-semibold bg-gradient-to-r from-blue-400 to-pink-400 bg-clip-text text-transparent"
-                  initial={{ opacity: 0, y: "-100" }}
-                  transition={{ type: "spring", stiffness: 50 }}
-                  animate={
-                    titleNumber === index
-                      ? {
-                          y: 0,
-                          opacity: 1,
-                        }
-                      : {
-                          y: titleNumber > index ? -150 : 150,
-                          opacity: 0,
-                        }
-                  }
-                >
-                  {title} Compensation
-                </motion.span>
-              ))}
-            </span>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+              <span>Discover Your</span>
+              <span className="relative inline-block overflow-hidden text-center min-h-[1.2em] sm:min-h-[1.1em]">
+                {titles.map((title, index) => (
+                  <motion.span
+                    key={index}
+                    className="absolute left-0 right-0 font-semibold bg-gradient-to-r from-blue-400 to-pink-400 bg-clip-text text-transparent"
+                    initial={{ opacity: 0, y: "-100%" }}
+                    transition={{ type: "spring", stiffness: 50 }}
+                    animate={
+                      titleNumber === index
+                        ? {
+                            y: 0,
+                            opacity: 1,
+                          }
+                        : {
+                            y: titleNumber > index ? "-100%" : "100%",
+                            opacity: 0,
+                          }
+                    }
+                  >
+                    {title} Compensation
+                  </motion.span>
+                ))}
+              </span>
+            </div>
           </h1>
 
           {/* Subheading */}
