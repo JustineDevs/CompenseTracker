@@ -68,8 +68,8 @@ export default function CalculatorPage() {
             baseSalary: data.baseSalary,
             totalCompensation: result.breakdown.trueCostToCompany,
             currency: data.currency,
-            position: data.personalDetails?.position || 'Unknown Position',
-            company: data.personalDetails?.company || 'Unknown Company',
+            position: data.personalDetails?.userRole || 'Unknown Position',
+            company: data.personalDetails?.companyName || 'Unknown Company',
             briefSummary: `Base + ${Math.round(((result.breakdown.trueCostToCompany - data.baseSalary) / data.baseSalary) * 100)}% total benefits`,
             fullBreakdown: {
               baseSalary: data.baseSalary,
