@@ -80,6 +80,12 @@ export function Hero() {
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-3xl w-xs flex items-center justify-center">
                 <div className="text-white/70 text-sm">Loading analytics...</div>
               </div>
+            ) : totalVisitors === 0 ? (
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-3xl w-xs text-center">
+                <div className="text-white text-2xl font-bold mb-2">0</div>
+                <div className="text-white/70 text-sm mb-1">Visitors</div>
+                <div className="text-white/50 text-xs">Be the first to visit!</div>
+              </div>
             ) : (
               <AnimatedChartCard
                 data={analyticsData}
