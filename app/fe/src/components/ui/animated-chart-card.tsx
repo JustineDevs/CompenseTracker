@@ -28,8 +28,8 @@ const defaultWeeklyData: ChartData[] = [
   { day: 'S', visitors: 0 },
 ];
 
-const chartWidth = 400;
-const chartHeight = 80;
+const chartWidth = 450;
+const chartHeight = 60;
 
 export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
   data = defaultWeeklyData,
@@ -58,7 +58,7 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
 
   return (
     <motion.div
-      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-8 rounded-3xl w-[500px] space-y-6 shadow-2xl border border-white/25 ${className}`}
+      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-8 rounded-3xl w-[520px] space-y-6 shadow-2xl border border-white/25 ${className}`}
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ scale: 1.02, y: -5 }}
@@ -129,7 +129,7 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
 
       {/* Chart Section */}
       <div className="relative">
-        <div className="bg-white/8 rounded-2xl p-6 border border-white/15">
+        <div className="bg-white/8 rounded-2xl p-4 border border-white/15">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
