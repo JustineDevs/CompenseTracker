@@ -67,7 +67,7 @@ export function Hero() {
       </div>
 
       {/* Content with proper spacing */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-32 sm:py-40">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full py-20 sm:py-24">
         <div className="text-center">
           {/* Analytics Chart Card */}
           <div 

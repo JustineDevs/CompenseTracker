@@ -14,7 +14,10 @@ import {
   Trash2,
   Eye,
   Calendar,
-  DollarSign
+  DollarSign,
+  Users,
+  BarChart3,
+  Activity
 } from 'lucide-react';
 
 interface Calculation {
@@ -24,6 +27,21 @@ interface Calculation {
   totalCTC: number;
   createdAt: string;
   lastModified: string;
+}
+
+interface CalculatorStats {
+  totalCalculations: number;
+  totalUsers: number;
+  averageSalary: number;
+  mostPopularCurrency: string;
+  calculationsByDay: { day: string; count: number }[];
+  salaryRanges: { range: string; count: number }[];
+  recentCalculations: {
+    id: string;
+    salary: number;
+    currency: string;
+    timestamp: string;
+  }[];
 }
 
 const mockCalculations: Calculation[] = [
@@ -56,10 +74,26 @@ const mockCalculations: Calculation[] = [
 export default function DashboardPage() {
   const [calculations] = useState<Calculation[]>(mockCalculations);
   const [isVisible, setIsVisible] = useState(false);
+  const [calculatorStats, setCalculatorStats] = useState<CalculatorStats | null>(null);
+  const [statsLoading, setStatsLoading] = useState(true);
 
   useEffect(() => {
     setIsVisible(true);
+    fetchCalculatorStats();
   }, []);
+
+  const fetchCalculatorStats = async () => {
+    try {
+      setStatsLoading(true);
+      const response = await fetch('/api/calculator-stats');
+      const data = await response.json();
+      setCalculatorStats(data.data);
+    } catch (error) {
+      console.error('Failed to fetch calculator stats:', error);
+    } finally {
+      setStatsLoading(false);
+    }
+  };
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -119,6 +153,75 @@ export default function DashboardPage() {
         >
           <h1 className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">Welcome back!</h1>
           <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Manage your compensation calculations and track your progress.</p>
+        </div>
+
+        {/* Calculator Stats Section */}
+        <div 
+          className={`mb-8 transition-all duration-700 ease-out transform ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+          style={{ transitionDelay: '400ms' }}
+        >
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-blue-100">
+                  <BarChart3 className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">Calculator Analytics</h2>
+                  <p className="text-gray-600 text-sm">Real-time usage statistics</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                <span className="text-sm text-gray-600">Live data</span>
+              </div>
+            </div>
+
+            {statsLoading ? (
+              <div className="flex items-center justify-center py-8">
+                <div className="text-gray-500">Loading calculator stats...</div>
+              </div>
+            ) : calculatorStats ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="text-center p-4 rounded-xl bg-blue-50 border border-blue-200">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">{calculatorStats.totalCalculations}</div>
+                  <div className="text-sm text-blue-700 flex items-center justify-center gap-2">
+                    <Calculator className="w-4 h-4" />
+                    Total Calculations
+                  </div>
+                </div>
+                <div className="text-center p-4 rounded-xl bg-green-50 border border-green-200">
+                  <div className="text-3xl font-bold text-green-600 mb-2">{calculatorStats.totalUsers}</div>
+                  <div className="text-sm text-green-700 flex items-center justify-center gap-2">
+                    <Users className="w-4 h-4" />
+                    Active Users
+                  </div>
+                </div>
+                <div className="text-center p-4 rounded-xl bg-purple-50 border border-purple-200">
+                  <div className="text-3xl font-bold text-purple-600 mb-2">
+                    {calculatorStats.averageSalary > 0 ? `$${(calculatorStats.averageSalary / 1000).toFixed(0)}k` : '$0'}
+                  </div>
+                  <div className="text-sm text-purple-700 flex items-center justify-center gap-2">
+                    <DollarSign className="w-4 h-4" />
+                    Avg Salary
+                  </div>
+                </div>
+                <div className="text-center p-4 rounded-xl bg-orange-50 border border-orange-200">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{calculatorStats.mostPopularCurrency}</div>
+                  <div className="text-sm text-orange-700 flex items-center justify-center gap-2">
+                    <TrendingUp className="w-4 h-4" />
+                    Popular Currency
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="text-center py-8 text-gray-500">
+                No calculator data available yet
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Stats Cards */}

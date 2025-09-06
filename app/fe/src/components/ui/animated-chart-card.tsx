@@ -58,7 +58,7 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
 
   return (
     <motion.div
-      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-6 rounded-2xl w-80 space-y-5 shadow-2xl border border-white/25 ${className}`}
+      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-8 rounded-3xl w-96 space-y-6 shadow-2xl border border-white/25 ${className}`}
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ scale: 1.02, y: -5 }}
@@ -91,37 +91,37 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-5">
         <motion.div 
-          className="text-center p-3 rounded-lg bg-white/5 border border-white/10"
+          className="text-center p-4 rounded-xl bg-white/8 border border-white/15"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="text-2xl font-bold text-white mb-1">{totalVisitors.toLocaleString()}</div>
-          <div className="text-xs text-white/60 flex items-center justify-center gap-1">
-            <Users className="w-3 h-3" />
+          <div className="text-3xl font-bold text-white mb-2">{totalVisitors.toLocaleString()}</div>
+          <div className="text-sm text-white/70 flex items-center justify-center gap-2">
+            <Users className="w-4 h-4" />
             Total
           </div>
         </motion.div>
         <motion.div 
-          className="text-center p-3 rounded-lg bg-white/5 border border-white/10"
+          className="text-center p-4 rounded-xl bg-white/8 border border-white/15"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="text-2xl font-bold text-white mb-1">{avgVisitors}</div>
-          <div className="text-xs text-white/60 flex items-center justify-center gap-1">
-            <Eye className="w-3 h-3" />
+          <div className="text-3xl font-bold text-white mb-2">{avgVisitors}</div>
+          <div className="text-sm text-white/70 flex items-center justify-center gap-2">
+            <Eye className="w-4 h-4" />
             Average
           </div>
         </motion.div>
         <motion.div 
-          className="text-center p-3 rounded-lg bg-white/5 border border-white/10"
+          className="text-center p-4 rounded-xl bg-white/8 border border-white/15"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="text-2xl font-bold text-white mb-1">{maxVisitors}</div>
-          <div className="text-xs text-white/60 flex items-center justify-center gap-1">
-            <TrendingUp className="w-3 h-3" />
+          <div className="text-3xl font-bold text-white mb-2">{maxVisitors}</div>
+          <div className="text-sm text-white/70 flex items-center justify-center gap-2">
+            <TrendingUp className="w-4 h-4" />
             Peak
           </div>
         </motion.div>
@@ -129,7 +129,7 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
 
       {/* Chart Section */}
       <div className="relative">
-        <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+        <div className="bg-white/8 rounded-2xl p-6 border border-white/15">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -152,12 +152,12 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
           </motion.div>
           
           {/* Day labels */}
-          <div className="flex justify-between mt-2">
+          <div className="flex justify-between mt-4">
             {data.map((d) => (
               <span
                 key={d.day}
-                className={`text-xs font-medium transition-colors duration-200 ${
-                  activeDay.day === d.day ? 'text-blue-300' : 'text-white/50'
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  activeDay.day === d.day ? 'text-blue-300' : 'text-white/60'
                 }`}
               >
                 {d.day}
@@ -175,19 +175,19 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="bg-white/10 rounded-lg p-3 border border-white/20"
+          className="bg-white/12 rounded-xl p-4 border border-white/20"
         >
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-white font-semibold">{activeDay.day}day</div>
-              <div className="text-white/60 text-sm">{activeDay.visitors} visitors</div>
+              <div className="text-white font-semibold text-lg">{activeDay.day}day</div>
+              <div className="text-white/70 text-sm">{activeDay.visitors} visitors</div>
             </div>
             <div className="text-right">
-              <div className="text-green-400 text-sm font-medium">
+              <div className="text-green-400 text-lg font-medium">
                 {activeDay.visitors > avgVisitors ? '+' : ''}
                 {activeDay.visitors - avgVisitors}
               </div>
-              <div className="text-white/50 text-xs">vs avg</div>
+              <div className="text-white/60 text-sm">vs avg</div>
             </div>
           </div>
         </motion.div>
@@ -195,22 +195,22 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
 
       {/* Footer */}
       <motion.div
-        className="flex items-center justify-between pt-3 border-t border-white/10"
+        className="flex items-center justify-between pt-4 border-t border-white/15"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-          <span className="text-white/60 text-xs">Live data</span>
+        <div className="flex items-center gap-3">
+          <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></div>
+          <span className="text-white/70 text-sm font-medium">Live data</span>
         </div>
         <motion.a
           href={linkHref}
-          className="text-white/80 hover:text-white text-sm font-medium flex items-center gap-1 transition-colors duration-200"
+          className="text-white/80 hover:text-white text-sm font-medium flex items-center gap-2 transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-white/10"
           whileHover={{ x: 2 }}
         >
           {linkText}
-          <ArrowUpRight className="w-3 h-3" />
+          <ArrowUpRight className="w-4 h-4" />
         </motion.a>
       </motion.div>
     </motion.div>
