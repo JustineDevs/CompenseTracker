@@ -9,6 +9,15 @@
   body {
     @apply bg-white text-gray-900;
   }
+  
+  /* Chart theme variables */
+  :root {
+    --chart-axis-tick-color: 255, 255, 255;
+    --chart-gridline-color: 255, 255, 255;
+    --chart-series-color: 59, 130, 246;
+    --chart-gradient-stop-2-opacity: 0.4;
+    --foreground: 255, 255, 255;
+  }
 }
 
 @layer components {

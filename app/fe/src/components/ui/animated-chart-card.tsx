@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { BarChart2, ArrowUpRight, TrendingUp, Users, Eye, Activity } from 'lucide-react';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
+import { ProfessionalChart, DataPoint } from './professional-chart';
 
 interface ChartData {
   day: string;
@@ -45,15 +46,15 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
   const maxVisitors = Math.max(...data.map(d => d.visitors), 1); // Avoid division by zero
   const avgVisitors = Math.round(totalVisitors / data.length);
 
-  // Convert data to SVG path string with area fill
-  const pathData = data.map((d, i) => {
-    const x = (i / (data.length - 1)) * chartWidth;
-    const y = chartHeight - (d.visitors / maxVisitors) * chartHeight;
-    return `${i === 0 ? 'M' : 'L'} ${x},${y}`;
-  }).join(' ');
-
-  // Create area path for fill
-  const areaPath = `${pathData} L ${chartWidth},${chartHeight} L 0,${chartHeight} Z`;
+  // Convert data to Reaviz format
+  const chartData: DataPoint[] = data.map((d, i) => {
+    const date = new Date();
+    date.setDate(date.getDate() - (data.length - 1 - i));
+    return {
+      key: date,
+      data: d.visitors
+    };
+  });
 
   return (
     <motion.div
@@ -129,79 +130,26 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
       {/* Chart Section */}
       <div className="relative">
         <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-          <svg viewBox={`0 0 ${chartWidth} ${chartHeight + 20}`} className="w-full h-32">
-            {/* Grid lines */}
-            <defs>
-              <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.05" />
-              </linearGradient>
-              <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#60a5fa" />
-                <stop offset="50%" stopColor="#3b82f6" />
-                <stop offset="100%" stopColor="#1d4ed8" />
-              </linearGradient>
-            </defs>
-            
-            {/* Area fill */}
-            <motion.path
-              d={areaPath}
-              fill="url(#areaGradient)"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <ProfessionalChart
+              id="visitors-chart"
+              data={chartData}
+              width={chartWidth}
+              height={chartHeight}
+              colorScheme="#3b82f6"
+              showXAxisTicks={true}
+              showYAxisTicks={false}
+              isDarkMode={true}
+              xAxisFormat={(value) => {
+                const date = new Date(value);
+                return date.toLocaleDateString('en-US', { weekday: 'short' });
+              }}
             />
-            
-            {/* Line */}
-            <motion.path
-              d={pathData}
-              fill="none"
-              stroke="url(#lineGradient)"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-            />
-            
-            {/* Data points */}
-            {data.map((d, i) => {
-              const x = (i / (data.length - 1)) * chartWidth;
-              const y = chartHeight - (d.visitors / maxVisitors) * chartHeight;
-              const isActive = activeDay.day === d.day;
-              
-              return (
-                <motion.circle
-                  key={d.day}
-                  cx={x}
-                  cy={y}
-                  r={isActive ? 6 : 4}
-                  fill={isActive ? "#60a5fa" : "#3b82f6"}
-                  stroke="white"
-                  strokeWidth={isActive ? 2 : 1}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: i * 0.1, duration: 0.3 }}
-                  whileHover={{ scale: 1.5 }}
-                />
-              );
-            })}
-            
-            {/* Interaction layer */}
-            {data.map((d, i) => (
-              <rect
-                key={i}
-                onMouseEnter={() => setActiveDay(d)}
-                x={(i / (data.length - 1)) * chartWidth - (chartWidth / (data.length - 1)) / 2}
-                y="0"
-                width={chartWidth / (data.length - 1)}
-                height={chartHeight + 20}
-                fill="transparent"
-                className="cursor-pointer"
-              />
-            ))}
-          </svg>
+          </motion.div>
           
           {/* Day labels */}
           <div className="flex justify-between mt-2">
