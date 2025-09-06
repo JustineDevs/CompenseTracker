@@ -71,7 +71,25 @@ export const ProfessionalChart: React.FC<ComponentProps> = ({
   }, [isDarkMode]);
 
   if (!data || data.length === 0) {
-    return <div style={{ width, height, display: 'flex', alignItems: 'center', justifyContent: 'center', color: themeColors.noDataColor }}>No data</div>;
+    return (
+      <div style={{ 
+        width, 
+        height, 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        color: themeColors.noDataColor,
+        background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+        borderRadius: '12px',
+        border: '1px solid rgba(255,255,255,0.2)'
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px' }}>0</div>
+          <div style={{ fontSize: '14px', opacity: 0.7 }}>Visitors</div>
+          <div style={{ fontSize: '12px', opacity: 0.5, marginTop: '4px' }}>No data yet</div>
+        </div>
+      </div>
+    );
   }
 
   const colorScheme = propColorScheme || themeColors.seriesColor;

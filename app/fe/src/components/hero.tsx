@@ -80,18 +80,6 @@ export function Hero() {
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-3xl w-xs flex items-center justify-center">
                 <div className="text-white/70 text-sm">Loading analytics...</div>
               </div>
-            ) : totalVisitors === 0 ? (
-              <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl border border-white/25 p-8 rounded-2xl w-80 text-center shadow-2xl">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="p-3 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/30 border border-white/30">
-                    <BarChart2 className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-                <div className="text-white text-3xl font-bold mb-2">0</div>
-                <div className="text-white/80 text-sm mb-2 font-medium">Visitors</div>
-                <div className="text-white/60 text-xs mb-4">No visitors yet - be the first!</div>
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse mx-auto"></div>
-              </div>
             ) : (
               <AnimatedChartCard
                 data={analyticsData}
