@@ -9,6 +9,7 @@ import { CalculatorErrorBoundary } from '@/components/calculator/calculator-erro
 import { CompensationInput, CompensationBreakdown } from '@/types/compensation';
 import { monitoring } from '@/services/monitoring';
 import { formatCurrency } from '@/utils/currency';
+import { getOrCreateAnonymousId } from '@/utils/anonymous-user';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
@@ -53,6 +54,39 @@ export default function CalculatorPage() {
       const result = await response.json();
       setBreakdown(result.breakdown);
       setCurrentStep('results');
+
+      // Save calculation to user history with anonymous user ID
+      try {
+        const anonymousUserId = getOrCreateAnonymousId();
+        
+        await fetch('/api/user/calculations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            baseSalary: data.baseSalary,
+            totalCompensation: result.breakdown.trueCostToCompany,
+            currency: data.currency,
+            position: data.personalDetails?.position || 'Unknown Position',
+            company: data.personalDetails?.company || 'Unknown Company',
+            briefSummary: `Base + ${Math.round(((result.breakdown.trueCostToCompany - data.baseSalary) / data.baseSalary) * 100)}% total benefits`,
+            fullBreakdown: {
+              baseSalary: data.baseSalary,
+              bonuses: data.performanceBonus + data.guaranteedIncrease,
+              benefits: result.breakdown.benefits,
+              equity: 0, // Not tracked in current form
+              other: result.breakdown.otherCosts
+            },
+            anonymousUserId: anonymousUserId
+          }),
+        });
+        
+        console.log('Calculation saved for anonymous user:', anonymousUserId);
+      } catch (saveError) {
+        console.warn('Failed to save calculation to history:', saveError);
+        // Don't fail the calculation if history save fails
+      }
 
       // Track successful calculation
       monitoring.trackCalculation(data, result.breakdown, duration);
