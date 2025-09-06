@@ -6,6 +6,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import AnimatedChartCard from '@/components/ui/animated-chart-card';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import { GitHubStarButton } from '@/components/github-star-button';
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,6 +58,14 @@ export function Hero() {
 
   return (
     <section className="section-no-gap relative overflow-hidden min-h-screen flex items-center">
+      {/* GitHub Star Button - Fixed Position */}
+      <div className="fixed top-6 right-6 z-50">
+        <GitHubStarButton 
+          repo="JustineDevs/CompenseTracker"
+          className="shadow-2xl"
+        />
+      </div>
+
       {/* Content with proper spacing */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-32 sm:py-40">
         <div className="text-center">
