@@ -28,7 +28,7 @@ const defaultWeeklyData: ChartData[] = [
   { day: 'Sun', visitors: 0 },
 ];
 
-const chartWidth = 900;
+const chartWidth = 450;
 const chartHeight = 60;
 
 export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
@@ -65,7 +65,7 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
 
   return (
     <motion.div
-      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-8 rounded-3xl w-[1000px] space-y-6 shadow-2xl border border-white/25 ${className}`}
+      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl w-full max-w-[520px] mx-auto space-y-4 sm:space-y-6 shadow-2xl border border-white/25 ${className}`}
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ scale: 1.02, y: -5 }}
@@ -98,37 +98,37 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5">
         <motion.div 
-          className="text-center p-4 rounded-xl bg-white/8 border border-white/15"
+          className="text-center p-3 sm:p-4 rounded-xl bg-white/8 border border-white/15"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="text-3xl font-bold text-white mb-2">{totalVisitors.toLocaleString()}</div>
-          <div className="text-sm text-white/70 flex items-center justify-center gap-2">
-            <Users className="w-4 h-4" />
+          <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{totalVisitors.toLocaleString()}</div>
+          <div className="text-xs sm:text-sm text-white/70 flex items-center justify-center gap-1 sm:gap-2">
+            <Users className="w-3 h-3 sm:w-4 sm:h-4" />
             Total
           </div>
         </motion.div>
         <motion.div 
-          className="text-center p-4 rounded-xl bg-white/8 border border-white/15"
+          className="text-center p-3 sm:p-4 rounded-xl bg-white/8 border border-white/15"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="text-3xl font-bold text-white mb-2">{avgVisitors}</div>
-          <div className="text-sm text-white/70 flex items-center justify-center gap-2">
-            <Eye className="w-4 h-4" />
+          <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{avgVisitors}</div>
+          <div className="text-xs sm:text-sm text-white/70 flex items-center justify-center gap-1 sm:gap-2">
+            <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
             Average
           </div>
         </motion.div>
         <motion.div 
-          className="text-center p-4 rounded-xl bg-white/8 border border-white/15"
+          className="text-center p-3 sm:p-4 rounded-xl bg-white/8 border border-white/15"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="text-3xl font-bold text-white mb-2">{maxVisitors}</div>
-          <div className="text-sm text-white/70 flex items-center justify-center gap-2">
-            <TrendingUp className="w-4 h-4" />
+          <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{maxVisitors}</div>
+          <div className="text-xs sm:text-sm text-white/70 flex items-center justify-center gap-1 sm:gap-2">
+            <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
             Peak
           </div>
         </motion.div>
@@ -142,20 +142,24 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <ProfessionalChart
-              id="visitors-chart"
-              data={chartData}
-              width={chartWidth}
-              height={chartHeight}
-              colorScheme="#3b82f6"
-              showXAxisTicks={true}
-              showYAxisTicks={false}
-              isDarkMode={true}
-              xAxisFormat={(value) => {
-                const date = new Date(value);
-                return date.toLocaleDateString('en-US', { weekday: 'short' });
-              }}
-            />
+            <div className="w-full overflow-x-auto">
+              <div className="min-w-[400px]">
+                <ProfessionalChart
+                  id="visitors-chart"
+                  data={chartData}
+                  width={chartWidth}
+                  height={chartHeight}
+                  colorScheme="#3b82f6"
+                  showXAxisTicks={true}
+                  showYAxisTicks={false}
+                  isDarkMode={true}
+                  xAxisFormat={(value) => {
+                    const date = new Date(value);
+                    return date.toLocaleDateString('en-US', { weekday: 'short' });
+                  }}
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

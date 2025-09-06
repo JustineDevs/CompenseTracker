@@ -247,10 +247,10 @@ export default function CalculatorPage() {
         ))}
       </div>
 
-              {/* Modern Bento Grid Layout - 1x2 Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 grid-rows-1 gap-2 flex-1 h-full w-full px-2">
+              {/* Modern Bento Grid Layout - Responsive */}
+        <div className="grid grid-cols-1 xl:grid-cols-12 grid-rows-1 gap-2 flex-1 h-full w-full px-2">
         {/* Left - Compensation Form */}
-        <div className="lg:col-span-4 lg:row-span-1">
+        <div className="xl:col-span-4 xl:row-span-1">
           <CompensationForm
             onSubmit={handleCalculate}
             onPersonalize={handlePersonalize}
@@ -261,7 +261,7 @@ export default function CalculatorPage() {
         </div>
 
         {/* Right - Quick Overview with All Components */}
-        <div className="lg:col-span-8 lg:row-span-1">
+        <div className="xl:col-span-8 xl:row-span-1">
           <div className="bg-white rounded-lg shadow-sm p-2 h-full overflow-y-auto">
             {currentStep === 'results' && breakdown && (
               <CompensationResults
@@ -273,47 +273,47 @@ export default function CalculatorPage() {
             {currentStep === 'form' && (
               <>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Overview</h3>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="bg-blue-50 rounded-lg p-3">
-                    <div className="text-xl font-bold text-blue-600">
+                    <div className="text-lg sm:text-xl font-bold text-blue-600">
                       {compensationData?.baseSalary ? formatCurrency(compensationData.baseSalary, compensationData.currency) : '0'}
                     </div>
                     <div className="text-sm text-gray-600">Base Salary</div>
                   </div>
                   <div className="bg-green-50 rounded-lg p-3">
-                    <div className="text-xl font-bold text-green-600">
+                    <div className="text-lg sm:text-xl font-bold text-green-600">
                       {breakdown?.benefits?.subtotal ? formatCurrency(breakdown.benefits.subtotal, breakdown.currency) : '0'}
                     </div>
                     <div className="text-sm text-gray-600">Total Benefits</div>
                   </div>
                   <div className="bg-purple-50 rounded-lg p-3">
-                    <div className="text-xl font-bold text-purple-600">
+                    <div className="text-lg sm:text-xl font-bold text-purple-600">
                       {breakdown?.trueCostToCompany ? formatCurrency(breakdown.trueCostToCompany, breakdown.currency) : '0'}
                     </div>
                     <div className="text-sm text-gray-600">True CTC</div>
                   </div>
                   <div className="bg-orange-50 rounded-lg p-3">
-                    <div className="text-xl font-bold text-orange-600">
+                    <div className="text-lg sm:text-xl font-bold text-orange-600">
                       {breakdown?.percentageBreakdown?.benefits ? `${breakdown.percentageBreakdown.benefits.toFixed(1)}%` : '0%'}
                     </div>
                     <div className="text-sm text-gray-600">Benefits Ratio</div>
                   </div>
                 </div>
-                <div className="grid grid-cols-3 gap-3 mt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
-                    <div className="text-lg font-bold text-gray-800">
+                    <div className="text-base sm:text-lg font-bold text-gray-800">
                       {breakdown?.grossPay ? formatCurrency(breakdown.grossPay, breakdown.currency) : '0'}
                     </div>
                     <div className="text-sm text-gray-600">Gross Pay</div>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
-                    <div className="text-lg font-bold text-gray-800">
+                    <div className="text-base sm:text-lg font-bold text-gray-800">
                       {breakdown?.netPay ? formatCurrency(breakdown.netPay, breakdown.currency) : '0'}
                     </div>
                     <div className="text-sm text-gray-600">Net Pay</div>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3 text-center">
-                    <div className="text-lg font-bold text-gray-800">
+                    <div className="text-base sm:text-lg font-bold text-gray-800">
                       {breakdown?.trueCostToCompany ? formatCurrency(breakdown.trueCostToCompany, breakdown.currency) : '0'}
                     </div>
                     <div className="text-sm text-gray-600">True CTC</div>

@@ -80,14 +80,15 @@ export function Hero() {
 
           {/* Main Heading */}
           <h1 
-            className={`text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 transition-all duration-800 ease-out transform ${
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 transition-all duration-800 ease-out transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
             }`}
             style={{ transitionDelay: '400ms' }}
           >
-            Discover Your{' '}
+            <span className="block sm:hidden">Discover Your</span>
+            <span className="hidden sm:block">Discover Your{' '}</span>
             <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-              &nbsp;
+              <span className="sm:hidden">&nbsp;</span>
               {titles.map((title, index) => (
                 <motion.span
                   key={index}
@@ -114,16 +115,16 @@ export function Hero() {
 
           {/* Subheading */}
           <div 
-            className={`text-2xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed transition-all duration-800 ease-out transform ${
+            className={`text-lg sm:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed transition-all duration-800 ease-out transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
             style={{ transitionDelay: '600ms' }}
           >
-            <div className="relative flex w-full justify-center overflow-hidden text-center min-h-[3rem]">
+            <div className="relative flex w-full justify-center overflow-hidden text-center min-h-[2.5rem] sm:min-h-[3rem]">
               {subtitles.map((subtitle, index) => (
                 <motion.p
                   key={index}
-                  className="absolute font-medium"
+                  className="absolute font-medium px-4"
                   initial={{ opacity: 0, y: "100" }}
                   transition={{ type: "spring", stiffness: 30, damping: 20 }}
                   animate={

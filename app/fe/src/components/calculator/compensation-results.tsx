@@ -96,7 +96,7 @@ export function CompensationResults({ breakdown, onNext, onSave }: CompensationR
   return (
     <div className="space-y-2">
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         <div 
           className={`bg-gray-50 rounded-lg p-2 transition-all duration-700 ease-out transform ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
@@ -245,8 +245,8 @@ export function CompensationResults({ breakdown, onNext, onSave }: CompensationR
         >
           <h3 className="text-sm font-semibold text-gray-900 mb-3">Detailed Breakdown</h3>
           
-          {/* Bento Grid Layout - 2x3 Grid */}
-          <div className="grid grid-cols-2 grid-rows-3 gap-3 h-48">
+          {/* Bento Grid Layout - Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-3 gap-3 h-auto sm:h-48">
             {/* Base Compensation - Top Left */}
             <div 
               className={`bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-3 relative overflow-hidden transition-all duration-500 ease-out transform hover:scale-105 hover:shadow-lg group ${

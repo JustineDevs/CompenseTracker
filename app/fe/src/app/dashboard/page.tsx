@@ -185,7 +185,7 @@ export default function DashboardPage() {
                 <div className="text-gray-500">Loading calculator stats...</div>
               </div>
             ) : calculatorStats ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <div className="text-center p-4 rounded-xl bg-blue-50 border border-blue-200">
                   <div className="text-3xl font-bold text-blue-600 mb-2">{calculatorStats.totalCalculations}</div>
                   <div className="text-sm text-blue-700 flex items-center justify-center gap-2">
@@ -231,7 +231,7 @@ export default function DashboardPage() {
 
         {/* Quick Actions */}
         <div 
-          className={`mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-700 ease-out transform ${
+          className={`mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 transition-all duration-700 ease-out transform ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
           style={{ transitionDelay: '1400ms' }}

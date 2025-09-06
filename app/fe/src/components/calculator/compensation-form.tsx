@@ -189,20 +189,20 @@ export function CompensationForm({ onSubmit, onPersonalize, isLoading, isPersona
 
       {/* Section Navigation */}
       <div className="mb-3">
-        <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
+        <div className="flex space-x-1 bg-gray-100 rounded-lg p-1 overflow-x-auto">
           {sections.map((section) => (
             <button
               key={section.id}
               onClick={() => setActiveSection(section.id)}
-              className={`flex-1 flex items-center justify-center space-x-1 px-1 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              className={`flex-shrink-0 flex items-center justify-center space-x-1 px-2 py-1.5 rounded-md text-xs font-medium transition-colors min-w-fit ${
                 activeSection === section.id
                   ? 'bg-white text-blue-600 shadow-sm'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              <section.icon className="w-3 h-3" />
-              <span className="hidden sm:block text-xs">{section.label}</span>
-              <span className="sm:hidden text-xs">{section.label.split(' ')[0]}</span>
+              <section.icon className="w-3 h-3 flex-shrink-0" />
+              <span className="hidden xs:block text-xs whitespace-nowrap">{section.label}</span>
+              <span className="xs:hidden text-xs">{section.label.split(' ')[0]}</span>
             </button>
           ))}
         </div>
