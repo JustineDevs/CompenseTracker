@@ -28,8 +28,8 @@ const defaultWeeklyData: ChartData[] = [
   { day: 'S', visitors: 0 },
 ];
 
-const chartWidth = 280;
-const chartHeight = 120;
+const chartWidth = 400;
+const chartHeight = 80;
 
 export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
   data = defaultWeeklyData,
@@ -58,7 +58,7 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
 
   return (
     <motion.div
-      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-8 rounded-3xl w-96 space-y-6 shadow-2xl border border-white/25 ${className}`}
+      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-8 rounded-3xl w-[500px] space-y-6 shadow-2xl border border-white/25 ${className}`}
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ scale: 1.02, y: -5 }}
@@ -150,20 +150,6 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
               }}
             />
           </motion.div>
-          
-          {/* Day labels */}
-          <div className="flex justify-between mt-4">
-            {data.map((d) => (
-              <span
-                key={d.day}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  activeDay.day === d.day ? 'text-blue-300' : 'text-white/60'
-                }`}
-              >
-                {d.day}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
 
