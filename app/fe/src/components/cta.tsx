@@ -15,7 +15,7 @@ export function CTA() {
   return (
     <section className="section-no-gap relative overflow-hidden">
       {/* Content with proper spacing */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 overflow-y-auto">
         <div className="text-center">
           <div 
             className={`inline-flex items-center px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium mb-8 transition-all duration-700 ease-out transform hover:scale-105 hover:bg-white/30 group ${
@@ -28,7 +28,7 @@ export function CTA() {
           </div>
 
           <h2 
-            className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 transition-all duration-800 ease-out transform ${
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 transition-all duration-800 ease-out transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
             style={{ transitionDelay: '400ms' }}
@@ -37,7 +37,7 @@ export function CTA() {
           </h2>
 
           <p 
-            className={`text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed transition-all duration-800 ease-out transform ${
+            className={`text-lg sm:text-xl text-blue-100 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed transition-all duration-800 ease-out transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
             style={{ transitionDelay: '600ms' }}

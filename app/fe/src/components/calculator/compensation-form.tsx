@@ -181,7 +181,7 @@ export function CompensationForm({ onSubmit, onPersonalize, isLoading, isPersona
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm p-4 h-full flex flex-col overflow-hidden">
+    <div className="bg-white rounded-lg shadow-sm p-4 h-full flex flex-col overflow-hidden min-h-0">
       <div className="flex items-center space-x-2 mb-4">
         <Calculator className="w-5 h-5 text-blue-600" />
         <h2 className="text-lg font-semibold text-gray-900">Compensation Details</h2>

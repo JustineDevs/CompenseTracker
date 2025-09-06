@@ -182,7 +182,7 @@ export default function CalculatorPage() {
         setCurrentStep('form');
       }}
     >
-        <div className="h-screen w-screen bg-gray-50 flex flex-col overflow-hidden">
+        <div className="min-h-screen w-screen bg-gray-50 flex flex-col overflow-hidden">
           {/* Back Button */}
           <div className="absolute top-4 left-4 z-10">
             <Link
@@ -248,20 +248,22 @@ export default function CalculatorPage() {
       </div>
 
               {/* Modern Bento Grid Layout - Responsive */}
-        <div className="grid grid-cols-1 xl:grid-cols-12 grid-rows-1 gap-2 flex-1 h-full w-full px-2">
+        <div className="grid grid-cols-1 xl:grid-cols-12 grid-rows-1 gap-2 flex-1 w-full px-2 min-h-0">
         {/* Left - Compensation Form */}
-        <div className="xl:col-span-4 xl:row-span-1">
-          <CompensationForm
-            onSubmit={handleCalculate}
-            onPersonalize={handlePersonalize}
-            isLoading={isCalculating}
-            isPersonalizing={isPersonalizing}
-            initialData={compensationData}
-          />
+        <div className="xl:col-span-4 xl:row-span-1 min-h-0">
+          <div className="h-full overflow-y-auto">
+            <CompensationForm
+              onSubmit={handleCalculate}
+              onPersonalize={handlePersonalize}
+              isLoading={isCalculating}
+              isPersonalizing={isPersonalizing}
+              initialData={compensationData}
+            />
+          </div>
         </div>
 
         {/* Right - Quick Overview with All Components */}
-        <div className="xl:col-span-8 xl:row-span-1">
+        <div className="xl:col-span-8 xl:row-span-1 min-h-0">
           <div className="bg-white rounded-lg shadow-sm p-2 h-full overflow-y-auto">
             {currentStep === 'results' && breakdown && (
               <CompensationResults

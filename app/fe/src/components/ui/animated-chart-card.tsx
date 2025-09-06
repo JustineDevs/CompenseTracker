@@ -65,7 +65,7 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
 
   return (
     <motion.div
-      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl w-full max-w-[520px] mx-auto space-y-4 sm:space-y-6 shadow-2xl border border-white/25 ${className}`}
+      className={`relative bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl p-3 sm:p-4 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl w-full max-w-[320px] sm:max-w-[420px] md:max-w-[520px] mx-auto space-y-3 sm:space-y-4 md:space-y-6 shadow-2xl border border-white/25 ${className}`}
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ scale: 1.02, y: -5 }}
@@ -98,36 +98,36 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 md:gap-5">
         <motion.div 
-          className="text-center p-3 sm:p-4 rounded-xl bg-white/8 border border-white/15"
+          className="text-center p-2 sm:p-3 md:p-4 rounded-lg sm:rounded-xl bg-white/8 border border-white/15"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{totalVisitors.toLocaleString()}</div>
-          <div className="text-xs sm:text-sm text-white/70 flex items-center justify-center gap-1 sm:gap-2">
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1">{totalVisitors.toLocaleString()}</div>
+          <div className="text-xs sm:text-sm text-white/70 flex items-center justify-center gap-1">
             <Users className="w-3 h-3 sm:w-4 sm:h-4" />
             Total
           </div>
         </motion.div>
         <motion.div 
-          className="text-center p-3 sm:p-4 rounded-xl bg-white/8 border border-white/15"
+          className="text-center p-2 sm:p-3 md:p-4 rounded-lg sm:rounded-xl bg-white/8 border border-white/15"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{avgVisitors}</div>
-          <div className="text-xs sm:text-sm text-white/70 flex items-center justify-center gap-1 sm:gap-2">
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1">{avgVisitors}</div>
+          <div className="text-xs sm:text-sm text-white/70 flex items-center justify-center gap-1">
             <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
             Average
           </div>
         </motion.div>
         <motion.div 
-          className="text-center p-3 sm:p-4 rounded-xl bg-white/8 border border-white/15"
+          className="text-center p-2 sm:p-3 md:p-4 rounded-lg sm:rounded-xl bg-white/8 border border-white/15"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{maxVisitors}</div>
-          <div className="text-xs sm:text-sm text-white/70 flex items-center justify-center gap-1 sm:gap-2">
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1">{maxVisitors}</div>
+          <div className="text-xs sm:text-sm text-white/70 flex items-center justify-center gap-1">
             <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
             Peak
           </div>

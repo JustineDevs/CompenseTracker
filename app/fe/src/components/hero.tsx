@@ -56,15 +56,15 @@ export function Hero() {
   return (
     <section className="section-no-gap relative overflow-hidden min-h-screen flex items-center">
       {/* GitHub Star Button - Fixed Position */}
-      <div className="fixed top-6 right-6 z-50">
+      <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50">
         <GitHubStarButton 
           repo="JustineDevs/CompenseTracker"
-          className="shadow-2xl"
+          className="shadow-2xl scale-75 sm:scale-100"
         />
       </div>
 
-      {/* Content with proper spacing */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full py-20 sm:py-24">
+      {/* Content with proper spacing and scrolling */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 w-full py-16 sm:py-20 md:py-24 overflow-y-auto max-h-screen">
         <div className="text-center">
 
           {/* Badge */}
@@ -80,18 +80,18 @@ export function Hero() {
 
           {/* Main Heading */}
           <h1 
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 transition-all duration-800 ease-out transform ${
+            className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 md:mb-8 transition-all duration-800 ease-out transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
             }`}
             style={{ transitionDelay: '400ms' }}
           >
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-              <span>Discover Your</span>
-              <span className="relative inline-block overflow-hidden text-center min-h-[1.2em] sm:min-h-[1.1em]">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 md:gap-3">
+              <span className="whitespace-nowrap">Discover Your</span>
+              <span className="relative inline-block overflow-hidden text-center min-h-[1.2em] sm:min-h-[1.1em] w-full sm:w-auto">
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute left-0 right-0 font-semibold bg-gradient-to-r from-blue-400 to-pink-400 bg-clip-text text-transparent"
+                    className="absolute left-0 right-0 font-semibold bg-gradient-to-r from-blue-400 to-pink-400 bg-clip-text text-transparent whitespace-nowrap"
                     initial={{ opacity: 0, y: "-100%" }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
@@ -115,16 +115,16 @@ export function Hero() {
 
           {/* Subheading */}
           <div 
-            className={`text-lg sm:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed transition-all duration-800 ease-out transform ${
+            className={`text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 sm:mb-6 md:mb-8 max-w-4xl mx-auto leading-relaxed transition-all duration-800 ease-out transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
             style={{ transitionDelay: '600ms' }}
           >
-            <div className="relative flex w-full justify-center overflow-hidden text-center min-h-[2.5rem] sm:min-h-[3rem]">
+            <div className="relative flex w-full justify-center overflow-hidden text-center min-h-[2rem] sm:min-h-[2.5rem] md:min-h-[3rem]">
               {subtitles.map((subtitle, index) => (
                 <motion.p
                   key={index}
-                  className="absolute font-medium px-4"
+                  className="absolute font-medium px-2 sm:px-4 text-center"
                   initial={{ opacity: 0, y: "100" }}
                   transition={{ type: "spring", stiffness: 30, damping: 20 }}
                   animate={
@@ -154,7 +154,7 @@ export function Hero() {
           >
             <Link
               href="/calculator"
-              className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/30 transition-all duration-300 border border-white/30 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 group"
+              className="bg-white/20 backdrop-blur-sm text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/30 transition-all duration-300 border border-white/30 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 group"
             >
               <span className="group-hover:tracking-wide transition-all duration-300">Get Started</span>
             </Link>
