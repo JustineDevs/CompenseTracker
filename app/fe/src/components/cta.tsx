@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight, Calculator, Sparkles } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import AnimatedChartCard from '@/components/ui/animated-chart-card';
 
 export function CTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,6 +45,30 @@ export function CTA() {
             Join thousands of professionals who have gained clarity on their compensation 
             with our AI-powered analysis platform. Start your free analysis today.
           </p>
+
+          {/* Analytics Chart Card */}
+          <div 
+            className={`flex justify-center mb-12 transition-all duration-800 ease-out transform ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}
+            style={{ transitionDelay: '700ms' }}
+          >
+            <AnimatedChartCard
+              data={[
+                { day: 'Mon', visitors: 0 },
+                { day: 'Tue', visitors: 0 },
+                { day: 'Wed', visitors: 0 },
+                { day: 'Thu', visitors: 0 },
+                { day: 'Fri', visitors: 0 },
+                { day: 'Sat', visitors: 0 },
+                { day: 'Sun', visitors: 0 },
+              ]}
+              title="Weekly Visitors (Live)"
+              linkHref="/dashboard"
+              linkText="View Full Analytics"
+              className="hover:scale-105 transition-transform duration-300"
+            />
+          </div>
 
           {/* Trust indicators */}
           <div 

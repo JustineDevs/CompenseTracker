@@ -1,18 +1,15 @@
 'use client';
 
-import { Sparkles, BarChart2 } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import AnimatedChartCard from '@/components/ui/animated-chart-card';
-import { useAnalytics } from '@/hooks/useAnalytics';
 import { GitHubStarButton } from '@/components/github-star-button';
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [titleNumber, setTitleNumber] = useState(0);
   const [subtitleNumber, setSubtitleNumber] = useState(0);
-  const { data: analyticsData, totalVisitors, totalPageviews, loading: analyticsLoading, source, error: analyticsError } = useAnalytics();
 
   const titles = useMemo(
     () => ["True", "Real", "Actual", "Complete", "Total"],
@@ -69,27 +66,6 @@ export function Hero() {
       {/* Content with proper spacing */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full py-20 sm:py-24">
         <div className="text-center">
-          {/* Analytics Chart Card */}
-          <div 
-            className={`flex justify-center mb-8 transition-all duration-800 ease-out transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-            }`}
-            style={{ transitionDelay: '100ms' }}
-          >
-            {analyticsLoading ? (
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-3xl w-xs flex items-center justify-center">
-                <div className="text-white/70 text-sm">Loading analytics...</div>
-              </div>
-            ) : (
-              <AnimatedChartCard
-                data={analyticsData}
-                title={`Weekly Visitors ${source === 'vercel' ? '(Live)' : source === 'fallback' ? '(Demo)' : '(Mock)'}`}
-                linkHref="/dashboard"
-                linkText="View Full Analytics"
-                className="hover:scale-105 transition-transform duration-300"
-              />
-            )}
-          </div>
 
           {/* Badge */}
           <div 

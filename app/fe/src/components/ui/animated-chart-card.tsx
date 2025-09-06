@@ -29,7 +29,7 @@ const defaultWeeklyData: ChartData[] = [
 ];
 
 const chartWidth = 900;
-const chartHeight = 50;
+const chartHeight = 60;
 
 export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
   data = defaultWeeklyData,
@@ -49,9 +49,16 @@ export const AnimatedChartCard: React.FC<AnimatedChartCardProps> = ({
   // Convert data to Reaviz format
   const chartData: DataPoint[] = data.map((d, i) => {
     const date = new Date();
-    date.setDate(date.getDate() - (data.length - 1 - i));
+    // Set to start of week (Monday) and add days
+    const startOfWeek = new Date(date);
+    startOfWeek.setDate(date.getDate() - date.getDay() + 1); // Monday
+    startOfWeek.setHours(0, 0, 0, 0);
+    
+    const chartDate = new Date(startOfWeek);
+    chartDate.setDate(startOfWeek.getDate() + i);
+    
     return {
-      key: date,
+      key: chartDate,
       data: d.visitors
     };
   });
